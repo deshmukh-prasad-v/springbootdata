@@ -76,14 +76,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!--
-			https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
-			<dependency>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.14</version>
-			</dependency>
 		</plugins>
 	</build>
-
 </project>
