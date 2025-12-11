@@ -2,9 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello from Jenkins!'
+                bat "mvn clean package -DskipTests"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat """
+                copy /Y target\\*.jar C:\\deployments\\app.jar
+                """
             }
         }
     }
