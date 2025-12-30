@@ -38,4 +38,4 @@ jobs:
         key: ${{ secrets.VM_SSH_KEY }}
         script: |
           pkill -f jar || true
-          nohup java -jar /home/azureuser/*.jar > app.log 2>&1 &
+          #nohup java -jar /home/azureuser/*.jar > app.log 2>&1 &
