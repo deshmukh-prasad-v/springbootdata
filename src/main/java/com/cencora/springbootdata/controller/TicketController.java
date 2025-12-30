@@ -10,6 +10,7 @@ import com.cencora.springbootdata.repository.TicketRepository;
 import com.cencora.springbootdata.service.TicketService;
 
 @RestController
+@RequestMapping("/api/ticket")
 public class TicketController {
 	
 	@Autowired
@@ -18,6 +19,7 @@ public class TicketController {
 	
 	@GetMapping("/getAll")
 	public Iterable<Ticket> getAllTickets(){
+		System.out.println(">>> getAll endpoint HIT <<<");
 		return ticketRepository.findAll();
 	}
 	
