@@ -2,7 +2,7 @@ name: Build and Deploy to Azure VM
 
 on:
   push:
-    branches: [ "master", "main" ]
+    branches: [ "main","master" ]
 
 jobs:
   build-deploy:
@@ -28,7 +28,7 @@ jobs:
         username: ${{ secrets.VM_USER }}
         key: ${{ secrets.VM_SSH_KEY }}
         source: "target/*.jar"
-        target: "/home/azureuser"
+        target: "/home/azureuser/app"
 
     - name: Run app on VM
       uses: appleboy/ssh-action@v1.0.3
@@ -38,4 +38,4 @@ jobs:
         key: ${{ secrets.VM_SSH_KEY }}
         script: |
           pkill -f jar || true
-          #nohup java -jar /home/azureuser/*.jar > app.log 2>&1 &
+          nohup java -jar /home/azureuser/app/*.jar > app.log 2>&1 &
